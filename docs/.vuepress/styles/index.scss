@@ -1,0 +1,271 @@
+@use '@vuepress/theme-default/styles/variables' as *;
+
+:root {
+  /* Marmot */
+  --mm-black: #1a1716;
+  --mm-white: #ffffff;
+
+  --mm-marmot-200: #e7c9a2;
+  --mm-marmot-300: #e7b574;
+  --mm-marmot-400: #d49855;
+  --mm-marmot-500: #c0793f;
+  --mm-marmot-600: #9d592e;
+  --mm-marmot-700: #6f3b1f;
+  --mm-marmot-800: #483120;
+  --mm-marmot-900: #2f1f13;
+
+  --mm-ground-50: #F9F1EB;
+  --mm-ground-100: #f7efe9;
+  --mm-ground-200: #f0e8e1;
+  --mm-ground-300: #e3dad2;
+  --mm-ground-400: #cfc7c0;
+  --mm-ground-500: #bbb2aa;
+  --mm-ground-600: #a59d95;
+  --mm-ground-700: #837a72;
+  --mm-ground-800: #6b625a;
+  --mm-ground-900: #51473f;
+  --mm-ground-950: #32261e;
+  --mm-ground-990: #251810;
+
+  --mm-gray-50: #f8f7f2;
+  --mm-gray-100: #f3f2ec;
+  --mm-gray-200: #efeee9;
+  --mm-gray-300: #e6e6e0;
+  --mm-gray-400: #dddcd6;
+  --mm-gray-500: #c9c9c2;
+  --mm-gray-600: #b5b5af;
+  --mm-gray-700: #9f9f99;
+  --mm-gray-800: #7d7c77;
+  --mm-gray-900: #66645f;
+  --mm-gray-950: #4c4944;
+  --mm-gray-990: #2f2721;
+
+  --mm-berry: #D92B68;
+  --mm-berry-pale: #FDF4F7;
+  --mm-moss:#00A16E;
+  --mm-moss-pale: #F2FAF8;
+  --mm-marine: #0086C9;
+  --mm-marine-pale: #F2F9FC;
+  --mm-pumpkin: #E54E06;
+  --mm-pumpkin-pale: #FEF6F3;
+  --mm-lilac: #8471B1;
+  --mm-lilac-pale: #F8F6FA;
+  --mm-honey: #CEAF60;
+  --mm-honey-pale: #FCF9F4;
+
+  --mm-border: 4px solid var(--mm-black);
+
+  /* Vuepress */
+  // greys
+  --vp-c-grey-soft: var(--mm-gray-200);
+  --vp-c-grey-text: var(--mm-gray-800);
+
+  // accent colors
+  --vp-c-accent: var(--mm-black);
+  --vp-c-accent-bg: var(--mm-black);
+  --vp-c-accent-hover: var(--mm-gray-990);
+  --vp-c-accent-text: var(--vp-c-white);
+  --vp-c-accent-soft: var(--vp-c-grey-soft);
+
+  // background colors
+  --vp-c-bg: #fff;
+  --vp-c-bg-alt: #f6f6f7;
+  --vp-c-bg-elv: #fff;
+
+  // text colors
+  --vp-c-text: var(--mm-gray-950);
+  --vp-c-text-mute: var(--mm-gray-800);
+  --vp-c-text-subtle: var(--mm-gray-600);
+
+  // border colors
+  --vp-c-divider: var(--mm-black);
+  --vp-c-border: var(--mm-black);
+  --vp-c-border-hard: var(--mm-black);
+
+  // shadow colors
+  --vp-c-shadow: rgb(0 0 0 / 15%);
+
+  // control colors
+  --vp-c-control: rgb(142 150 170 / 10%);
+  --vp-c-control-hover: rgb(142 150 170 / 16%);
+  --vp-c-control-disabled: #eaeaea;
+
+  // layout colors
+  --vp-navbar-c-bg: var(--vp-c-bg);
+  --vp-sidebar-c-bg: var(--vp-c-bg);
+
+  // code group colors
+  --vp-c-code-tab-title: var(--code-c-text, rgb(255 255 255 / 90%));
+  --vp-c-code-tab-bg: var(--code-bg-color, var(--code-c-bg));
+  --vp-c-code-tab-active: var(--vp-c-accent);
+
+  // badge colors
+  --badge-c-tip-text: var(--mm-moss);
+  --badge-c-tip-bg: var(--mm-moss-pale);
+  --badge-c-warning-text: var(--mm-honey);
+  --badge-c-warning-bg: var(--mm-honey-pale);
+  --badge-c-danger-text: var(--mm-berry);
+  --badge-c-danger-bg: var(--mm-berry-pale);
+  --badge-c-important-text: var(--mm-pumpkin);
+  --badge-c-important-bg: var(--mm-pumpkin-pale);
+  --badge-c-info-text: var(--mm-marine);
+  --badge-c-info-bg: var(--mm-marine-pale);
+  --badge-c-note-text: var(--vp-c-grey-text);
+  --badge-c-note-bg: var(--vp-c-grey-soft);
+
+  // font vars
+  --font-family: 'Zilla Slab', -apple-system, 'BlinkMacSystemFont', 'Segoe UI', roboto, oxygen, ubuntu, cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+
+  // layout vars
+  --navbar-height: 3.6rem;
+  --navbar-padding-v: 0.7rem;
+  --navbar-padding-h: 1.5rem;
+  --sidebar-width: 20rem;
+  --sidebar-width-mobile: calc(var(--sidebar-width) * 0.82);
+  --content-width: 40rem;
+
+  // header offset
+  --header-offset: 0;//var(--navbar-height);
+
+  // transition vars
+  --vp-t-color: 0.3s ease;
+  --vp-t-transform: 0.3s ease;
+
+  // external-link-icon
+  --external-link-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M0 0h24v24H0V0z' fill='none'/%3E%3Cpath d='M9 5v2h6.59L4 18.59 5.41 20 17 8.41V15h2V5H9z'/%3E%3C/svg%3E");
+  --external-link-c-icon: var(--vp-c-text-mute);
+
+  @media (min-width: ($MQMobile + 1)) {
+    --navbar-height: 5rem;
+    --sidebar-width: 17rem;
+  }
+}
+
+// Overrides and additions to https://github.com/vuepress/ecosystem/blob/main/tools/helper/src/client/styles/normalize.scss
+html {
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1.3;
+  @media (max-width: $MQMobile) {
+    font-size: 20px;
+  }
+  @media (max-width: $MQMobileNarrow) {
+    font-size: 18px;
+  }
+}
+
+p,
+ul,
+ol {
+  line-height: inherit;
+}
+
+// Layout
+#app {
+  display: flex;
+  justify-content: center;
+}
+.vp-theme-container,
+.vp-navbar {
+  width: 100%;
+  max-width: $MQMax;
+  margin: 0 auto;
+  @media (min-width: $MQMax) {
+    border-left: var(--mm-border);
+    border-right: var(--mm-border);
+  }
+}
+.vp-navbar {
+  --vp-c-accent: var(--mm-black);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: var(--mm-border);
+  background: var(--mm-ground-50);
+  line-height: unset;
+  padding-inline-start: var(--navbar-padding-h);
+  max-width: $MQMax + 8px;
+}
+.vp-navbar > span {
+  order: 0;
+}
+.vp-navbar-items-wrapper {
+  position: static;
+}
+.vp-toggle-sidebar-button {
+  position: static;
+  order: 1;
+  margin-right: -.5rem;
+  padding: 0.25rem;
+}
+.vp-toggle-sidebar-button .icon {
+  --size: 1.5rem;
+  width: var(--size);
+  height: var(--size);
+}
+.vp-toggle-sidebar-button .icon span {
+  height: 3px;
+  border-radius: 0;
+  background-color: var(--mm-black);
+}
+.vp-theme-container.sidebar-open .vp-toggle-sidebar-button .icon span:nth-child(1) {
+  transform: rotate(45deg) translate3d(6.5px, 6.5px, 0);
+}
+.vp-site-logo {
+  height: 1.5rem;
+  @media (max-width: $MQMobileNarrow) {
+    height: 1rem;
+  }
+}
+.vp-site-name,
+.vp-navbar-item .external-link::after {
+  display: none;
+}
+.vp-sidebar {
+  border-inline-end: var(--mm-border);
+  @media (min-width: ($MQMobile + 1)) {
+    transition: none;
+    inset-inline-start: unset;
+  }
+}
+.vp-sidebar .vp-navbar-items {
+  border-bottom: var(--mm-border);
+}
+
+.vp-page {
+  min-height: calc(100dvh - var(--navbar-height));
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 0;
+  [vp-content] {
+    flex-grow: 1;
+    padding: 1.5rem;
+  }
+  .vp-page-meta {
+    width: 100%;
+    padding: 0 1.5rem 1.5rem;
+  }
+}
+.contact .vp-sidebar {
+  color: var(--mm-white);
+  background: var(--mm-black);
+  display: flex;
+  flex-direction: column;
+}
+
+.contact .vp-sidebar .vp-sidebar-heading {
+  color: var(--mm-white);
+  font-size: 1.833rem;
+  font-weight: 700;
+  order: 0;
+}
+.contact .vp-sidebar .vp-navbar-items {
+  order: 1;
+}
+
+a.header-anchor::before {
+  content: "¶";
+  top: .25em;
+  left: -1em;
+  color: var(--vp-c-text-subtle);
+}

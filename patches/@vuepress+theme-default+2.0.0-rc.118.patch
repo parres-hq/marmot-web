@@ -1,0 +1,12 @@
+diff --git a/node_modules/@vuepress/theme-default/lib/client/styles/_variables.scss b/node_modules/@vuepress/theme-default/lib/client/styles/_variables.scss
+index 39b6916..36f8587 100644
+--- a/node_modules/@vuepress/theme-default/lib/client/styles/_variables.scss
++++ b/node_modules/@vuepress/theme-default/lib/client/styles/_variables.scss
+@@ -1,7 +1,2 @@
+ /* stylelint-disable scss/dollar-variable-pattern */
+ @forward '@vuepress/plugin-palette/palette';
+-
+-// responsive breakpoints
+-$MQNarrow: 959px !default;
+-$MQMobile: 719px !default;
+-$MQMobileNarrow: 419px !default;
