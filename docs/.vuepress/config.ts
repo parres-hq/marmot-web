@@ -7,6 +7,7 @@ const __dirname = import.meta.dirname || getDirname(import.meta.url)
 
 export default defineUserConfig({
   bundler: viteBundler(),
+  base: process.env.NODE_ENV === 'production' ? '/marmot-web/' : '/',
   lang: 'en-US',
   title: 'Marmot',
   description: 'Marmot is an open, end to end encrypted protocol that runs on a distributed relay network and stays fast and reliable. Keys define identity, not platforms.',
@@ -39,6 +40,8 @@ export default defineUserConfig({
     ],
     colorMode: 'light',
     colorModeSwitch: false,
+    lastUpdated: false,
+    contributors: false,
   }),
   // https://ecosystem.vuejs.press/themes/default/extending.html
   alias: {
