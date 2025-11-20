@@ -1,4 +1,5 @@
 ---
+title: Contact
 pageClass: contact
 sidebar:
   - text: Contact us
