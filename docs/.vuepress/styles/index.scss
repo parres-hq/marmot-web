@@ -14,37 +14,23 @@
   --mm-marmot-800: #483120;
   --mm-marmot-900: #2f1f13;
 
-  --mm-ground-50: #F9F1EB;
-  --mm-ground-100: #f7efe9;
-  --mm-ground-200: #f0e8e1;
-  --mm-ground-300: #e3dad2;
-  --mm-ground-400: #cfc7c0;
-  --mm-ground-500: #bbb2aa;
-  --mm-ground-600: #a59d95;
-  --mm-ground-700: #837a72;
-  --mm-ground-800: #6b625a;
-  --mm-ground-900: #51473f;
-  --mm-ground-950: #32261e;
-  --mm-ground-990: #251810;
-
-  --mm-gray-50: #f8f7f2;
-  --mm-gray-100: #f3f2ec;
-  --mm-gray-200: #efeee9;
-  --mm-gray-300: #e6e6e0;
-  --mm-gray-400: #dddcd6;
-  --mm-gray-500: #c9c9c2;
-  --mm-gray-600: #b5b5af;
-  --mm-gray-700: #9f9f99;
-  --mm-gray-800: #7d7c77;
-  --mm-gray-900: #66645f;
-  --mm-gray-950: #4c4944;
-  --mm-gray-990: #2f2721;
+  --mm-toner-50: #FAFAFA;
+  --mm-toner-100: #EEEEED;
+  --mm-toner-200: #D6D4D3;
+  --mm-toner-300:#BEBCBB;
+  --mm-toner-400:#A7A4A2;
+  --mm-toner-500:#8D8A87;
+  --mm-toner-600: #73716E;
+  --mm-toner-700: #615F5D;
+  --mm-toner-800: #4D4C4A;
+  --mm-toner-900: #393837;
 
   --mm-berry: #D92B68;
   --mm-berry-pale: #FDF4F7;
   --mm-moss:#00A16E;
   --mm-moss-pale: #F2FAF8;
   --mm-marine: #0086C9;
+  --mm-marine-100: #E1F0F5;
   --mm-marine-pale: #F2F9FC;
   --mm-pumpkin: #E54E06;
   --mm-pumpkin-pale: #FEF6F3;
@@ -53,17 +39,17 @@
   --mm-honey: #CEAF60;
   --mm-honey-pale: #FCF9F4;
 
-  --mm-border: 4px solid var(--mm-black);
+  --mm-header-bg: var(--mm-toner-100);
 
   /* Vuepress */
   // greys
-  --vp-c-grey-soft: var(--mm-gray-200);
-  --vp-c-grey-text: var(--mm-gray-800);
+  --vp-c-grey-soft: var(--mm-toner-200);
+  --vp-c-grey-text: var(--mm-toner-600);
 
   // accent colors
   --vp-c-accent: var(--mm-black);
   --vp-c-accent-bg: var(--mm-black);
-  --vp-c-accent-hover: var(--mm-gray-990);
+  --vp-c-accent-hover: var(--mm-toner-800);
   --vp-c-accent-text: var(--vp-c-white);
   --vp-c-accent-soft: var(--vp-c-grey-soft);
 
@@ -73,9 +59,9 @@
   --vp-c-bg-elv: #fff;
 
   // text colors
-  --vp-c-text: var(--mm-gray-950);
-  --vp-c-text-mute: var(--mm-gray-800);
-  --vp-c-text-subtle: var(--mm-gray-600);
+  --vp-c-text: var(--mm-toner-900);
+  --vp-c-text-mute: var(--mm-toner-800);
+  --vp-c-text-subtle: var(--mm-toner-600);
 
   // border colors
   --vp-c-divider: var(--mm-black);
@@ -141,6 +127,10 @@
   }
 }
 
+.devkit {
+  --mm-header-bg: var(--mm-marine-100);
+}
+
 // Overrides and additions to https://github.com/vuepress/ecosystem/blob/main/tools/helper/src/client/styles/normalize.scss
 html {
   font-size: 24px;
@@ -158,109 +148,6 @@ p,
 ul,
 ol {
   line-height: inherit;
-}
-
-// Layout
-#app {
-  display: flex;
-  justify-content: center;
-}
-.vp-theme-container,
-.vp-navbar {
-  width: 100%;
-  max-width: $MQMax;
-  margin: 0 auto;
-  @media (min-width: $MQMax) {
-    border-left: var(--mm-border);
-    border-right: var(--mm-border);
-  }
-}
-.vp-navbar {
-  --vp-c-accent: var(--mm-black);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-bottom: var(--mm-border);
-  background: var(--mm-ground-50);
-  line-height: unset;
-  padding-inline-start: var(--navbar-padding-h);
-  max-width: $MQMax + 8px;
-}
-.vp-navbar > span {
-  order: 0;
-}
-.vp-navbar-items-wrapper {
-  position: static;
-}
-.vp-toggle-sidebar-button {
-  position: static;
-  order: 1;
-  margin-right: -.5rem;
-  padding: 0.25rem;
-}
-.vp-toggle-sidebar-button .icon {
-  --size: 1.5rem;
-  width: var(--size);
-  height: var(--size);
-}
-.vp-toggle-sidebar-button .icon span {
-  height: 3px;
-  border-radius: 0;
-  background-color: var(--mm-black);
-}
-.vp-theme-container.sidebar-open .vp-toggle-sidebar-button .icon span:nth-child(1) {
-  transform: rotate(45deg) translate3d(6.5px, 6.5px, 0);
-}
-.vp-site-logo {
-  height: 1.5rem;
-  @media (max-width: $MQMobileNarrow) {
-    height: 1rem;
-  }
-}
-.vp-site-name,
-.vp-navbar-item .external-link::after {
-  display: none;
-}
-.vp-sidebar {
-  border-inline-end: var(--mm-border);
-  @media (min-width: ($MQMobile + 1)) {
-    transition: none;
-    inset-inline-start: unset;
-  }
-}
-.vp-sidebar .vp-navbar-items {
-  border-bottom: var(--mm-border);
-}
-
-.vp-page {
-  min-height: calc(100dvh - var(--navbar-height));
-  display: flex;
-  flex-direction: column;
-  padding-bottom: 0;
-  [vp-content] {
-    flex-grow: 1;
-    padding: 1.5rem;
-  }
-  .vp-page-meta {
-    width: 100%;
-    padding: 0 1.5rem 1.5rem;
-  }
-}
-.contact .vp-sidebar {
-  color: var(--mm-white);
-  background: var(--mm-black);
-  display: flex;
-  flex-direction: column;
-}
-
-.contact .vp-sidebar .vp-sidebar-heading {
-  color: var(--mm-white);
-  font-size: 1.833rem;
-  font-weight: 700;
-  order: 0;
-}
-.contact .vp-sidebar .vp-navbar-items {
-  order: 1;
 }
 
 a.header-anchor::before {

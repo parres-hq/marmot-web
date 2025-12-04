@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import VPHomeFeatures from '@theme/VPHomeFeatures.vue'
 import VPHomeHero from '@theme/VPHomeHero.vue'
-import Footer from './Footer.vue'
 import { Content } from 'vuepress/client'
 </script>
 
@@ -9,12 +8,9 @@ import { Content } from 'vuepress/client'
   <main class="vp-home">
     <VPHomeHero />
     <VPHomeFeatures />
-    <!--
     <div vp-content>
       <Content />
     </div>
-    -->
-    <Footer />
   </main>
 </template>
 

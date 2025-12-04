@@ -47,23 +47,25 @@ const NavfootBrandLogo: FunctionalComponent = () => {
 </script>
 
 <template>
-  <div class="mm-footer">
-    <nav
-      v-if="navfootLinks.length"
-      class="navfoot-items"
-    >
-      <div v-for="item in navfootLinks" :key="item.text" class="navfoot-item">
-        <VPAutoLink :config="item" />
+  <div id="mm-footer-wrap">
+    <div class="mm-container">
+      <nav
+        v-if="navfootLinks.length"
+        class="navfoot-items"
+      >
+        <div v-for="item in navfootLinks" :key="item.text" class="navfoot-item">
+          <VPAutoLink :config="item" />
+        </div>
+      </nav>
+      <div class="bottom">
+        <div class="copyright">
+          <span>©2025 Internet Privacy Foundation. </span>
+          <span>All rights reserved.</span>
+        </div>
+        <RouteLink :to="navfootBrandLink">
+          <NavfootBrandLogo />
+        </RouteLink>
       </div>
-    </nav>
-    <div class="bottom">
-      <div class="copyright">
-        <span>©2025 Internet Privacy Foundation. </span>
-        <span>All rights reserved.</span>
-      </div>
-      <RouteLink :to="navfootBrandLink">
-        <NavfootBrandLogo />
-      </RouteLink>
     </div>
   </div>
 </template>
@@ -71,49 +73,24 @@ const NavfootBrandLogo: FunctionalComponent = () => {
 <style lang="scss">
 @use '@vuepress/theme-default/styles/variables' as *;
 
-.mm-footer {
-  background: var(--mm-gray-50);
-  color: var(--mm-gray-600);
-}
-
-.mm-footer:before {
-  content: '';
-  display: block;
-  width: 100%;
-  background: url('/images/bg-ground.svg');
-  border-top: var(--mm-border);
-  border-bottom: var(--mm-border);
-
-  @media (max-width: $MQMobileNarrow) {
-    justify-content: center;
-    height: 5rem;
-    background-size: 45rem;
-    background-position-y: bottom;
-  }
-  @media (min-width: ($MQMobileNarrow + 1)) {
-    justify-content: end;
-    background-size: 50rem;
-    height: 5.5rem;
-  }
-}
-
-.vp-home .mm-footer:before {
-  border-top: none;
+#mm-footer-wrap {
+  background: var(--mm-black);
+  color: var(--mm-toner-50);
 }
 
 .navfoot-items {
   display: flex;
   flex-direction: column;
   gap: .75rem;
-  padding: 3rem var(--navbar-padding-h) 1rem;
+  padding: 3rem 0 1rem;
 }
 
 .navfoot-item {
   .auto-link {
-    color: var(--mm-gray-800);
+    color: var(--mm-toner-50);
     &:hover,
     &.route-link-active {
-      color: var(--mm-gray-900);
+      color: var(--mm-toner-10);
     }
     &.external-link::after  {
       display: none;
@@ -124,10 +101,10 @@ const NavfootBrandLogo: FunctionalComponent = () => {
 .bottom {
   display: flex;
   justify-content: space-between;
-  padding: 1rem var(--navbar-padding-h) 3rem;
-  gap: 1rem;
+  padding: 1.5rem 0 3rem;
+  gap: .75rem;
 
-  @media (max-width: $MQNarrow) {
+  @media (max-width: $MQMobile) {
     flex-direction: column;
     padding-bottom: 2rem;
 
@@ -136,12 +113,16 @@ const NavfootBrandLogo: FunctionalComponent = () => {
     }
   }
 
-  @media (min-width: ($MQNarrow + 1)) {
+  @media (min-width: ($MQMobile + 1)) {
     align-items: center;
   }
 }
 
-.copyright span:last-child {
-  white-space: nowrap;
+.copyright {
+  color: var(--mm-toner-600);
+
+  span:last-child {
+    white-space: nowrap;
+  }
 }
 </style>

@@ -1,10 +1,10 @@
 ---
 home: true
 heroImage: /images/marmot.svg
-heroText: Marmot is an open, end to end encrypted protocol that runs on a distributed relay network and stays fast and reliable. Keys define identity, not platforms.
+heroText: Decentralized group messaging that protects people by encrypting content and metadata.
 actions:
   - text: Get Started
-    link: /docs/get-started.html
+    link: /development-kit.html
     type: primary
 
 features:

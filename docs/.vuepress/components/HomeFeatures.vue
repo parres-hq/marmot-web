@@ -20,13 +20,8 @@ const features = computed(() => frontmatter.value.features ?? [])
 <style lang="scss">
 @use '@vuepress/theme-default/styles/variables' as *;
 
-.vp-features {
-  border-top: var(--mm-border);
-}
-
 .vp-feature {
   display: flex;
-  border-bottom: var(--mm-border);
 
   &:nth-child(1) h2 {
     color: var(--mm-moss);
@@ -55,10 +50,8 @@ const features = computed(() => frontmatter.value.features ?? [])
   @media (min-width: ($MQMobileNarrow + 1)) {
     &:nth-child(2n) h2 {
       order: 1;
-      border-inline-start: var(--mm-border);
     }
     &:nth-child(2n-1) h2 {
-      border-inline-end: var(--mm-border);
       text-align: right;
     }
   }
@@ -71,7 +64,6 @@ const features = computed(() => frontmatter.value.features ?? [])
 
     @media (max-width: $MQMobileNarrow) {
       font-size: 1.5rem;
-      border-bottom: var(--mm-border);
       padding: 3rem 1rem 1rem;
     }
     @media (min-width: ($MQMobileNarrow + 1)) {

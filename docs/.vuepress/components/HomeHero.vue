@@ -51,27 +51,29 @@ const HomeHeroImage: FunctionalComponent = () => {
 
 <template>
   <header class="vp-hero">
-    <HomeHeroImage />
+    <div class="mm-container">
+      <HomeHeroImage />
 
-    <p v-if="heroText" class="vp-hero-description">
-      {{ heroText }}
-    </p>
+      <p v-if="heroText" class="vp-hero-description">
+        {{ heroText }}
+      </p>
 
-    <div v-if="actions.length" class="vp-hero-actions">
-      <VPAutoLink
-        v-for="action in actions"
-        :key="action.text"
-        class="vp-hero-action-button"
-        :class="[action.type]"
-        :config="action"
-      >
-      <template #after>
-        <img
-          src="/images/arrow-right.svg"
-          alt="→"
-          style="margin-left: 0.5rem; width: 1em; height: 1em;">
-      </template>
-      </VPAutoLink>
+      <div v-if="actions.length" class="vp-hero-actions">
+        <VPAutoLink
+          v-for="action in actions"
+          :key="action.text"
+          class="vp-hero-action-button"
+          :class="[action.type]"
+          :config="action"
+        >
+        <template #after>
+          <img
+            src="/images/arrow-right.svg"
+            alt="→"
+            style="margin-left: 0.5rem; width: 1em; height: 1em;">
+        </template>
+        </VPAutoLink>
+      </div>
     </div>
   </header>
 </template>
@@ -81,7 +83,7 @@ const HomeHeroImage: FunctionalComponent = () => {
 
 .vp-hero {
   text-align: center;
-  background: var(--mm-ground-50);
+  background: var(--mm-header-bg);
   padding-top: 2rem;
 }
 
@@ -111,29 +113,10 @@ const HomeHeroImage: FunctionalComponent = () => {
   font-size: 1.16rem;
   line-height: 1.21;
   max-width: 30rem;
-  color: var(--mm-ground-800);
+  color: var(--mm-toner-900);
 
   @media (max-width: $MQMobileNarrow) {
     font-size: 1.2rem;
-  }
-}
-
-.vp-hero-actions {
-  display: flex;
-  gap: 1rem;
-  background: url('/images/bg-ground.svg');
-  background-size: 41rem;
-
-  @media (max-width: $MQMobileNarrow) {
-    justify-content: center;
-    padding-bottom: 5rem;
-    background-size: 45rem;
-    background-position-y: bottom;
-  }
-  @media (min-width: ($MQMobileNarrow + 1)) {
-    justify-content: end;
-    border-top: var(--mm-border);
-    background-size: 50rem;
   }
 }
 
