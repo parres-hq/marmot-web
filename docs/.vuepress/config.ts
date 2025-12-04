@@ -31,7 +31,7 @@ export default defineUserConfig({
       },
       {
         text: 'GitHub',
-        link: 'https://github.com/parres-hq/',
+        link: 'https://github.com/marmot-protocol',
       },
       {
         text: 'Contact',
