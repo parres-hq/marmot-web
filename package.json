@@ -8,10 +8,9 @@
     "url": "https://github.com/marmot-protocol/marmot-web"
   },
   "scripts": {
-    "docs:build": "vuepress build docs",
-    "docs:clean-dev": "vuepress dev docs --clean-cache",
-    "docs:dev": "vuepress dev docs",
-    "docs:update-package": "npx vp-update"
+    "start": "vuepress dev docs --clean-cache",
+    "build": "vuepress build docs",
+    "update-package": "npx vp-update"
   },
   "devDependencies": {
     "@vuepress/bundler-vite": "2.0.0-rc.26",
