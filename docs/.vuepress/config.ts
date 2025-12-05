@@ -56,6 +56,5 @@ export default defineUserConfig({
     '@theme/VPNavbar.vue': path.resolve(__dirname, './components/Navbar.vue'),
     '@theme/VPHome.vue': path.resolve(__dirname, './components/Home.vue'),
     '@theme/VPHomeHero.vue': path.resolve(__dirname, './components/HomeHero.vue'),
-    '@theme/VPHomeFeatures.vue': path.resolve(__dirname, './components/HomeFeatures.vue'),
   },
 })

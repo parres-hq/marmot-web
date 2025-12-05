@@ -149,10 +149,10 @@ const onBeforeLeave = scrollPromise.pending
 
 #mm-page-wrap {
   flex-grow: 1;
-  width: 100%;
   position: relative;
 }
 .vp-navbar .mm-container,
+[vp-content] .mm-container,
 #mm-footer-wrap .mm-container,
 .vp-theme-container:not(.no-sidebar) .mm-container {
   max-width: $MQMax;

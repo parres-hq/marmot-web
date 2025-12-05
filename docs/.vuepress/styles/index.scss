@@ -25,23 +25,34 @@
   --mm-toner-800: #4D4C4A;
   --mm-toner-900: #393837;
 
-  --mm-berry: #D92B68;
-  --mm-berry-pale: #FDF4F7;
-  --mm-moss:#00A16E;
+  --mm-berry-50: #FFF8FD;
+  --mm-berry-100: #FDE8F9;
+  --mm-berry-900: #5E1D57;
+
+  --mm-moss-50:#F6FBF8;
+  --mm-moss-100:#E1F2E9;
   --mm-moss-500: #029F6C;
-  --mm-moss-pale: #F2FAF8;
-  --mm-marine: #0086C9;
+  --mm-moss-900: #173F2D;
+
+  --mm-marine-50: #F6FBFC;
   --mm-marine-100: #E1F0F5;
   --mm-marine-500: #1698B1;
   --mm-marine-700: #1E6878;
-  --mm-marine-pale: #F2F9FC;
-  --mm-pumpkin: #E54E06;
-  --mm-pumpkin-pale: #FEF6F3;
+  --mm-marine-900: #1A3D45;
+
+  --mm-ember-50: #FFF9F6;
+  --mm-ember-100: #FFE9E0;
+  --mm-ember-900: #60270F;
+
   --mm-lilac: #8471B1;
+  --mm-lilac-50: #FBF9FD;
+  --mm-lilac-100: #F1ECF9;
   --mm-lilac-500: #987CD1;
-  --mm-lilac-pale: #F8F6FA;
-  --mm-honey: #CEAF60;
-  --mm-honey-pale: #FCF9F4;
+  --mm-lilac-900: #3E3159;
+
+  --mm-blush-50: #FFF8F9;
+  --mm-blush-100: #FFE8EC;
+  --mm-blush-900: #641F33;
 
   --mm-header-bg: var(--mm-toner-100);
   --mm-header-text: var(--mm-toner-900);
@@ -91,16 +102,16 @@
   --vp-c-code-tab-active: var(--vp-c-accent);
 
   // badge colors
-  --badge-c-tip-text: var(--mm-moss);
-  --badge-c-tip-bg: var(--mm-moss-pale);
-  --badge-c-warning-text: var(--mm-honey);
-  --badge-c-warning-bg: var(--mm-honey-pale);
-  --badge-c-danger-text: var(--mm-berry);
-  --badge-c-danger-bg: var(--mm-berry-pale);
-  --badge-c-important-text: var(--mm-pumpkin);
-  --badge-c-important-bg: var(--mm-pumpkin-pale);
-  --badge-c-info-text: var(--mm-marine);
-  --badge-c-info-bg: var(--mm-marine-pale);
+  --badge-c-tip-text: var(--mm-moss-900);
+  --badge-c-tip-bg: var(--mm-moss-100);
+  --badge-c-warning-text: var(--mm-ember-900);
+  --badge-c-warning-bg: var(--mm-ember-100);
+  --badge-c-danger-text: var(--mm-berry-900);
+  --badge-c-danger-bg: var(--mm-berry-100);
+  --badge-c-important-text: var(--mm-ember-900);
+  --badge-c-important-bg: var(--mm-ember-100);
+  --badge-c-info-text: var(--mm-marine-900);
+  --badge-c-info-bg: var(--mm-marine-100);
   --badge-c-note-text: var(--vp-c-grey-text);
   --badge-c-note-bg: var(--vp-c-grey-soft);
 
@@ -133,9 +144,126 @@
   }
 }
 
+// Custom classen
 .devkit {
   --mm-header-bg: var(--mm-marine-100);
   --mm-header-text: var(--mm-marine-700);
+}
+
+[vp-content] {
+  .lead {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 3rem auto 4rem;
+    text-align: center;
+    max-width: 20em;
+  }
+  section {
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+
+    > div:not(.box) {
+      color: var(--mm-toner-600);
+
+      @media (max-width: 749px) {
+        order: 1;
+      }
+
+      strong {
+        font-weight: 600;
+        color: var(--mm-toner-900);
+      }
+    }
+
+    @media (min-width: 750px) {
+      --gap-size: 3rem;
+      flex-direction: row;
+      align-items: start;
+      margin: 3rem 0 4rem;
+      gap: var(--gap-size);
+
+      > div {
+        flex: 1 0 calc(50% - var(--gap-size));
+      }
+    }
+
+    .box {
+      --box-text: var(--vp-c-text);
+      --box-bg: var(--mm-toner-50);
+      --box-heading-bg: var(--mm-toner-100);
+
+      color: var(--box-text);
+      background: var(--box-bg);
+      padding: 1rem var(--navbar-padding-h);
+
+      @media (max-width: 749px) {
+        margin: 0 calc(var(--navbar-padding-h) * -1) 1rem;
+        order: 0;
+
+        &:nth-child(2) {
+          margin-bottom: 1rem;
+        }
+      }
+
+      &.blush {
+        --box-text: var(--mm-blush-900);
+        --box-bg: var(--mm-blush-50);
+        --box-heading-bg: var(--mm-blush-100);
+      }
+      &.berry {
+        --box-text: var(--mm-berry-900);
+        --box-bg: var(--mm-berry-50);
+        --box-heading-bg: var(--mm-berry-100);
+      }
+      &.ember {
+        --box-text: var(--mm-ember-900);
+        --box-bg: var(--mm-ember-50);
+        --box-heading-bg: var(--mm-ember-100);
+      }
+      &.lilac {
+        --box-text: var(--mm-lilac-900);
+        --box-bg: var(--mm-lilac-50);
+        --box-heading-bg: var(--mm-lilac-100);
+      }
+      &.marine {
+        --box-text: var(--mm-marine-900);
+        --box-bg: var(--mm-marine-50);
+        --box-heading-bg: var(--mm-marine-100);
+      }
+      &.moss {
+        --box-text: var(--mm-moss-900);
+        --box-bg: var(--mm-moss-50);
+        --box-heading-bg: var(--mm-moss-100);
+      }
+
+      h3 {
+        color: var(--box-heading-text);
+        background: var(--box-heading-bg);
+        font-size: 1.5rem;
+        font-weight: 700;
+        padding: 1rem var(--navbar-padding-h);
+        margin: -1rem calc(var(--navbar-padding-h) * -1) 1rem;
+      }
+
+      p {
+        margin-top: 0;
+        max-width: 30em;
+      }
+
+      :last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    p {
+      margin-top: 0;
+    }
+
+    :last-child {
+      margin-bottom: 0;
+    }
+  }
 }
 
 // Overrides and additions to https://github.com/vuepress/ecosystem/blob/main/tools/helper/src/client/styles/normalize.scss
@@ -143,6 +271,8 @@ html {
   font-size: 24px;
   font-weight: 500;
   line-height: 1.3;
+  scroll-padding-top: var(--navbar-height);
+
   @media (max-width: $MQMobile) {
     font-size: 20px;
   }
@@ -158,8 +288,5 @@ ol {
 }
 
 a.header-anchor::before {
-  content: "¶";
-  top: .25em;
-  left: -1em;
-  color: var(--vp-c-text-subtle);
+  content: none;
 }

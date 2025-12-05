@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import VPHomeFeatures from '@theme/VPHomeFeatures.vue'
 import VPHomeHero from '@theme/VPHomeHero.vue'
 import { Content } from 'vuepress/client'
 </script>
@@ -7,7 +6,6 @@ import { Content } from 'vuepress/client'
 <template>
   <main class="vp-home">
     <VPHomeHero />
-    <VPHomeFeatures />
     <div vp-content>
       <Content />
     </div>
@@ -23,6 +21,10 @@ import { Content } from 'vuepress/client'
   [vp-content] {
     margin: 0;
     padding: 0;
+
+    > :last-child {
+      margin-bottom: 4rem;
+    }
   }
 }
 </style>
