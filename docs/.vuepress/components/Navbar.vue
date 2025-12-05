@@ -138,7 +138,6 @@ useUpdateDeviceStatus(
 .vp-toggle-sidebar-button {
   position: static;
   order: 1;
-  margin-right: -.5rem;
   padding: 0.25rem;
 }
 .vp-toggle-sidebar-button .icon {
@@ -164,5 +163,10 @@ useUpdateDeviceStatus(
 
   font-size: 0.9rem;
   white-space: nowrap;
+}
+@media (max-width: $MQMobile) {
+  .vp-navbar-items {
+    border-top: 1px solid var(--vp-c-border)
+  }
 }
 </style>

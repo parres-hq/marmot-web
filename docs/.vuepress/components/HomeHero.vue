@@ -10,7 +10,27 @@ import type { DefaultThemeHomePageFrontmatter } from '../../shared/index.js'
 const { frontmatter, siteLocale } = useData<DefaultThemeHomePageFrontmatter>()
 const isDarkMode = useDarkMode()
 
-const heroText = computed(() => frontmatter.value.heroText || siteLocale.value.title)
+const heroText = computed(() => {
+  if (frontmatter.value.heroText === null) {
+    return null
+  }
+
+  return (
+    frontmatter.value.heroText ||
+    siteLocale.value.title
+  )
+})
+const tagline = computed(() => {
+  if (frontmatter.value.tagline === null) {
+    return null
+  }
+
+  return (
+    frontmatter.value.tagline ||
+    siteLocale.value.description
+  )
+})
+const taglineHtml = computed(() => frontmatter.value.taglineHtml)
 const heroImage = computed(() => {
   if (isDarkMode.value && frontmatter.value.heroImageDark !== undefined) {
     return frontmatter.value.heroImageDark
@@ -53,26 +73,30 @@ const HomeHeroImage: FunctionalComponent = () => {
   <header class="vp-hero">
     <div class="mm-container">
       <HomeHeroImage />
+      <div class="mm-hero-content">
+        <h1 v-if="heroText" id="main-title">
+          {{ heroText }}
+        </h1>
 
-      <p v-if="heroText" class="vp-hero-description">
-        {{ heroText }}
-      </p>
+        <div v-if="taglineHtml" class="vp-hero-description" v-html="tagline"/>
+        <div v-else class="vp-hero-description" v-text="tagline" />
 
-      <div v-if="actions.length" class="vp-hero-actions">
-        <VPAutoLink
-          v-for="action in actions"
-          :key="action.text"
-          class="vp-hero-action-button"
-          :class="[action.type]"
-          :config="action"
-        >
-        <template #after>
-          <img
-            src="/images/arrow-right.svg"
-            alt="→"
-            style="margin-left: 0.5rem; width: 1em; height: 1em;">
-        </template>
-        </VPAutoLink>
+        <div v-if="actions.length" class="vp-hero-actions">
+          <VPAutoLink
+            v-for="action in actions"
+            :key="action.text"
+            class="vp-hero-action-button"
+            :class="[action.type]"
+            :config="action"
+          >
+            <template #after>
+              <img
+                src="/images/arrow-right.svg"
+                alt="→"
+                style="margin-left: 0.5rem; width: 1em; height: 1em;">
+            </template>
+          </VPAutoLink>
+        </div>
       </div>
     </div>
   </header>
@@ -82,41 +106,80 @@ const HomeHeroImage: FunctionalComponent = () => {
 @use '@vuepress/theme-default/styles/variables' as *;
 
 .vp-hero {
-  text-align: center;
+  color: var(--mm-header-text);
   background: var(--mm-header-bg);
-  padding-top: 2rem;
+  transition: color var(--vp-t-color), background-color var(--vp-t-color);
+  padding: 1.5rem var(--navbar-padding-h) 2.5rem;
+
+  @media (min-width: ($MQMobile + 1)) {
+    padding: 3rem var(--navbar-padding-h) 4rem;
+  }
+
+  .mm-container {
+    display: flex;
+    align-items: center;
+    max-width: 39rem;
+    margin: 0 auto;
+    gap: 3rem;
+
+    @media (max-width: $MQMobile) {
+      flex-direction: column;
+      gap: 1rem;
+    }
+  }
+
+  #main-title {
+    margin-top: 0;
+  }
 }
 
 .vp-hero-image {
   display: block;
   max-width: 100%;
-  max-height: 207px;
-  margin: 0 auto 1.5rem;
+  height: calc(69px * 4);
 
   @media (max-width: $MQMobileNarrow) {
-    max-height: 138px;
-    margin: 0 auto 1rem;
+    height: calc(69px * 2);
+    margin: 0 auto;
   }
-}
-
-.vp-hero-description {
-  --spacing: 1.5rem;
-  margin: var(--spacing) auto;
-  padding: 0 var(--spacing);
-
-  @media (max-width: $MQMobileNarrow) {
-    --spacing: 1rem;
+  @media (min-width: ($MQMobileNarrow + 1)) and (max-width: $MQMobile) {
+    height: calc(69px * 3);
   }
 }
 
 .vp-hero-description {
   font-size: 1.16rem;
   line-height: 1.21;
-  max-width: 30rem;
-  color: var(--mm-toner-900);
+  max-width: 21em;
+  margin: 0 auto 1.5rem;
 
   @media (max-width: $MQMobileNarrow) {
     font-size: 1.2rem;
+  }
+  @media (min-width: ($MQMobileNarrow + 1)) and (max-width: $MQMobile) {
+    text-align: center;
+  }
+
+  p {
+    margin: .5rem 0;
+
+    span:nth-child(1) {
+      color: var(--mm-lilac-500);
+    }
+
+    span:nth-child(2) {
+      color: var(--mm-marine-500);
+    }
+
+    span:nth-child(3) {
+      color: var(--mm-moss-500);
+    }
+  }
+}
+
+.vp-hero-actions {
+  @media (min-width: ($MQMobileNarrow + 1)) and (max-width: $MQMobile) {
+    text-align: center;
   }
 }
 
@@ -124,19 +187,21 @@ const HomeHeroImage: FunctionalComponent = () => {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+
+  box-sizing: border-box;
+  padding: 0.5em 1.5em;
+  border: 2px solid var(--vp-c-accent-bg);
+
   background-color: var(--vp-c-bg);
   color: var(--vp-c-accent);
+
   font-size: 1.2rem;
+
   transition: background-color border-color color var(--vp-t-color);
-  text-wrap: nowrap;
 
   @media (max-width: $MQMobileNarrow) {
+    font-size: 1rem;
     width: 100%;
-    padding: 1rem;
-  }
-  @media (min-width: ($MQMobileNarrow + 1)) {
-    flex: 0 0 25%;
-    padding: 2rem 1.5rem;
   }
 
   &:hover {

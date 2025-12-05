@@ -28,18 +28,23 @@
   --mm-berry: #D92B68;
   --mm-berry-pale: #FDF4F7;
   --mm-moss:#00A16E;
+  --mm-moss-500: #029F6C;
   --mm-moss-pale: #F2FAF8;
   --mm-marine: #0086C9;
   --mm-marine-100: #E1F0F5;
+  --mm-marine-500: #1698B1;
+  --mm-marine-700: #1E6878;
   --mm-marine-pale: #F2F9FC;
   --mm-pumpkin: #E54E06;
   --mm-pumpkin-pale: #FEF6F3;
   --mm-lilac: #8471B1;
+  --mm-lilac-500: #987CD1;
   --mm-lilac-pale: #F8F6FA;
   --mm-honey: #CEAF60;
   --mm-honey-pale: #FCF9F4;
 
   --mm-header-bg: var(--mm-toner-100);
+  --mm-header-text: var(--mm-toner-900);
 
   /* Vuepress */
   // greys
@@ -103,9 +108,9 @@
   --font-family: 'Zilla Slab', -apple-system, 'BlinkMacSystemFont', 'Segoe UI', roboto, oxygen, ubuntu, cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
 
   // layout vars
-  --navbar-height: 3.6rem;
+  --navbar-height: 4rem;
   --navbar-padding-v: 0.7rem;
-  --navbar-padding-h: 1.5rem;
+  --navbar-padding-h: 1rem;
   --sidebar-width: 20rem;
   --sidebar-width-mobile: calc(var(--sidebar-width) * 0.82);
   --content-width: 40rem;
@@ -124,11 +129,13 @@
   @media (min-width: ($MQMobile + 1)) {
     --navbar-height: 5rem;
     --sidebar-width: 17rem;
+    --navbar-padding-h: 1.5rem;
   }
 }
 
 .devkit {
   --mm-header-bg: var(--mm-marine-100);
+  --mm-header-text: var(--mm-marine-700);
 }
 
 // Overrides and additions to https://github.com/vuepress/ecosystem/blob/main/tools/helper/src/client/styles/normalize.scss

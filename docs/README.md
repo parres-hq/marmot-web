@@ -1,7 +1,9 @@
 ---
 home: true
+heroText: null
 heroImage: /images/marmot.svg
-heroText: Decentralized group messaging that protects people by encrypting content and metadata.
+tagline: <p>Decentralized group messaging that protects people by encrypting content and metadata.</p><p><span>Your Keys.</span> <span>Your Identity.</span>  <span>Your Data.</span></p>
+taglineHtml: true
 actions:
   - text: Get Started
     link: /development-kit.html
