@@ -4,17 +4,18 @@ import { viteBundler } from '@vuepress/bundler-vite'
 import { getDirname, path } from 'vuepress/utils'
 
 const __dirname = import.meta.dirname || getDirname(import.meta.url)
+const base = process.env.NODE_ENV === 'production' ? '/marmot-web/' : '/'
 
 export default defineUserConfig({
   bundler: viteBundler(),
-  base: process.env.NODE_ENV === 'production' ? '/marmot-web/' : '/',
+  base,
   lang: 'en-US',
   title: 'Marmot',
   description: 'Decentralized group messaging that protects people by encrypting content and metadata.',
   // https://vuejs.press/reference/config.html#head
   head: [
-    ['link', { rel: 'stylesheet', href: '/fonts/zilla-slab.css' }],
-    ['link', { rel: 'stylesheet', href: '/fonts/jetbrains-mono.css' }],
+    ['link', { rel: 'stylesheet', href: `${base}fonts/zilla-slab.css` }],
+    ['link', { rel: 'stylesheet', href: `${base}fonts/jetbrains-mono.css` }],
   ],
   theme: defaultTheme({
     // https://ecosystem.vuejs.press/themes/default/config.html
